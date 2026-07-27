@@ -104,7 +104,7 @@ export default function Home() {
         {/* Full Image Section (Right Half) */}
         <div className="relative hidden w-full md:block lg:w-1/2 md:min-h-[500px] lg:min-h-full">
            <Image 
-             src="/assets/founder.jpg" 
+             src="/assets/d2c-growth-partner.jpg" 
              alt="Your Partner in D2C Ecommerce Growth" 
              fill
              className="object-cover object-center"
