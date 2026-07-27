@@ -421,7 +421,7 @@ export default function ContactPage() {
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
                                         <motion.a
-                                            href="https://www.linkedin.com/company/d2cora/"
+                                            href="https://in.linkedin.com/company/d2cora1"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             whileHover={{ scale: 1.05, y: -2 }}

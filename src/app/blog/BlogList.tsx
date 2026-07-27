@@ -31,7 +31,7 @@ export default function BlogList({ posts }: { posts: any[] }) {
       </motion.div>
 
       {posts.length > 0 ? (
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -40,11 +40,11 @@ export default function BlogList({ posts }: { posts: any[] }) {
           {posts.map((post) => (
             <motion.div key={post._id} variants={itemVariants}>
               <Link href={`/blog/${post.slug.current}`}>
-                <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden h-full flex flex-col group hover:shadow-xl transition-all duration-300">
+                <div className="bg-white border border-gray-100 overflow-hidden h-full flex flex-col group hover:shadow-xl transition-all duration-300">
                   <div className="relative h-60 w-full overflow-hidden bg-gray-50">
                     {post.imageUrl ? (
-                      <Image 
-                        src={post.imageUrl} 
+                      <Image
+                        src={post.imageUrl}
                         alt={post.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -72,12 +72,12 @@ export default function BlogList({ posts }: { posts: any[] }) {
           ))}
         </motion.div>
       ) : (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="text-center py-20"
         >
-          <div className="bg-gray-50 border border-gray-100 p-12 inline-block rounded-3xl">
+          <div className="bg-gray-50 border border-gray-100 p-12 inline-block">
             <h3 className="text-2xl font-black mb-2 text-black">No posts yet</h3>
             <p className="text-gray-600 font-medium">Check back later for new content.</p>
           </div>

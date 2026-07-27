@@ -138,10 +138,10 @@ function FloatingSketchesDesktop() {
         className="absolute inset-0 h-full w-full"
         style={{ x: smoothX, y: smoothY, willChange: "transform" }}
       >
-        <DrawnElement src="/assets/services/content_marketing_camera-removebg-preview.png" className="h-75 w-75 bottom-[10%] left-[5%]" delay={1.2} rotationOffset={-12} />
-        <DrawnElement src="/assets/services/mic_social_media__1_-removebg-preview.png" className="h-65 w-65 left-[20%] top-[10%]" delay={1.8} rotationOffset={15} />
-        <DrawnElement src="/assets/services/Untitled_design-removebg-preview.png" className="h-150 w-150 right-[5%] top-[15%]" delay={2.5} rotationOffset={-5} />
-        <DrawnElement src="/assets/services/speaker_social_marketing-removebg-preview.png" className="h-70 w-70 bottom-[5%] right-[20%]" delay={3.0} rotationOffset={8} />
+        <DrawnElement src="/assets/services/content_marketing_camera-removebg-preview.png" className="w-[clamp(12rem,16vw,18.75rem)] h-[clamp(12rem,16vw,18.75rem)] bottom-[10%] left-[5%]" delay={1.2} rotationOffset={-12} />
+        <DrawnElement src="/assets/services/mic_social_media__1_-removebg-preview.png" className="w-[clamp(10rem,13vw,16.25rem)] h-[clamp(10rem,13vw,16.25rem)] left-[20%] top-[10%]" delay={1.8} rotationOffset={15} />
+        <DrawnElement src="/assets/services/Untitled_design-removebg-preview.png" className="w-[clamp(18rem,28vw,37.5rem)] h-[clamp(18rem,28vw,37.5rem)] right-[5%] top-[15%]" delay={2.5} rotationOffset={-5} />
+        <DrawnElement src="/assets/services/speaker_social_marketing-removebg-preview.png" className="w-[clamp(11rem,14vw,17.5rem)] h-[clamp(11rem,14vw,17.5rem)] bottom-[5%] right-[20%]" delay={3.0} rotationOffset={8} />
       </motion.div>
       <div className="bg-linear-to-t pointer-events-none absolute inset-0 z-30 from-black/80 via-transparent to-transparent" />
     </motion.div>
@@ -192,7 +192,7 @@ export function Hero() {
   }, []);
 
   // Parallax: only meaningful on desktop. On mobile scrollY listener adds main-thread cost.
-  // We still create it but only apply it on desktop (avoids conditional hook).
+  // We still create it but only apply it on desktop (avoids conditional hook)
   const yDesktop = useTransform(scrollY, [0, 1000], [0, -400], { clamp: false });
 
   useEffect(() => {

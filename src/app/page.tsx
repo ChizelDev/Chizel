@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
@@ -73,16 +74,44 @@ export default function Home() {
       <Services />
 
       {/* SEO Copy Section */}
-      <section className="bg-black py-16 px-6 md:px-16 text-white/70">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold mb-4 text-white">Your Partner in D2C Ecommerce Growth</h2>
-          <p className="mb-4">
-            At d2cora, we understand that scaling a direct-to-consumer brand requires more than just basic advertising. It demands a holistic, data-driven approach to performance marketing, conversion rate optimization (CRO), and customer retention. As a premier digital marketing agency for D2C brands, our mission is to turn your traffic into loyal customers and your marketing spend into measurable profit.
-          </p>
-          <p>
-            Whether you need to overhaul your paid social strategy, optimize your website for higher conversion rates, or build a scalable growth engine, our team of experts is here to help. We combine creative excellence with rigorous analytics to ensure every campaign we run is optimized for maximum ROI.
-          </p>
+      <section className="flex w-full flex-col lg:flex-row bg-[#fffbeb] text-blue-950 min-h-screen lg:min-h-[80vh]">
+        
+        {/* Text Section (Left Half) */}
+        <div className="flex w-full lg:w-1/2 flex-col justify-center px-8 py-20 md:px-16 lg:px-24">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1524ca] leading-[1.1] tracking-tight mb-8">
+            Your Partner in <br />
+            <span className="text-[#0701a5]">
+              D2C Ecommerce Growth
+            </span>
+          </h2>
+          
+          <div className="flex flex-col gap-6">
+            <p className="text-lg md:text-xl font-medium leading-relaxed text-gray-700">
+              Scaling a direct-to-consumer brand requires more than just basic advertising. It demands a holistic, data-driven approach to performance marketing, conversion rate optimization, and customer retention. 
+            </p>
+            <p className="text-lg md:text-xl font-medium leading-relaxed text-gray-700">
+              We combine creative excellence with rigorous analytics to ensure every campaign is optimized for maximum ROI, turning your traffic into loyal customers and your spend into measurable profit.
+            </p>
+          </div>
+          
+          <div className="pt-10">
+             <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#1524ca] px-8 py-4 text-sm font-bold text-white transition-all hover:bg-[#0701a5] active:scale-95">
+               Start Growing Today
+             </a>
+          </div>
         </div>
+        
+        {/* Full Image Section (Right Half) */}
+        <div className="relative hidden w-full md:block lg:w-1/2 md:min-h-[500px] lg:min-h-full">
+           <Image 
+             src="/assets/founder.jpg" 
+             alt="Your Partner in D2C Ecommerce Growth" 
+             fill
+             className="object-cover object-center"
+             sizes="(max-width: 1024px) 100vw, 50vw"
+           />
+        </div>
+        
       </section>
 
       <FAQ />

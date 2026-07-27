@@ -33,7 +33,7 @@ export const Contact = React.memo(function Contact() {
                     </div>
 
                     <div className="mt-12 flex justify-center gap-6 text-sm uppercase tracking-widest text-gray-400">
-                        <a href="https://www.linkedin.com/company/d2cora/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border-b border-transparent transition-colors hover:border-white hover:text-white">
+                        <a href="https://in.linkedin.com/company/d2cora1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border-b border-transparent transition-colors hover:border-white hover:text-white">
                             <Linkedin className="h-4 w-4" />
                             LinkedIn
                         </a>

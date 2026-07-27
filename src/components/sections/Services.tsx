@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
 import { serviceCategories } from "@/lib/constants/services";
 import { ServiceCategory } from "./services/ServiceCategory";
@@ -58,6 +59,32 @@ export function Services() {
                             setHoveredCategory={setHoveredCategory}
                         />
                     ))}
+                </div>
+
+                {/* View All Services Button */}
+                <div className="mt-16 flex justify-center">
+                    <Link
+                        href="/services"
+                        className="group inline-flex items-center gap-3 rounded-full border border-black px-8 py-4 text-sm font-bold text-black transition-all hover:bg-black hover:text-[#f4f0e6]"
+                    >
+                        View All Services
+                        <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="transition-transform group-hover:translate-x-1"
+                        >
+                            <path
+                                d="M1 7H13M13 7L7 1M13 7L7 13"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </Link>
                 </div>
             </div>
         </section>

@@ -22,7 +22,7 @@ export default function FounderBrandAuditPage() {
           <p>Creators are rewarded for constant visibility.</p>
           <p>Founders are rewarded for leverage, trust, and systems.</p>
           <p className="font-medium text-[#F7F9F5]">
-            If your brand depends on you showing up every day, you haven't built a brand — you've built a second job.
+            If your brand depends on you showing up every day, you haven't built a brand. You've built a second job.
           </p>
         </div>
       </section>
@@ -33,7 +33,7 @@ export default function FounderBrandAuditPage() {
           <h2 className="mb-10 font-serif text-3xl md:text-5xl">Why founder brands burn so fast</h2>
           <div className="space-y-6 text-lg font-light leading-relaxed text-[#D8E2D1] md:text-xl">
             <p>
-              Most founders copy creator behavior without realizing it. They post more, think more, and perform more — but the business doesn't grow proportionally.
+              Most founders copy creator behavior without realizing it. They post more, think more, and perform more. But the business doesn't grow proportionally.
             </p>
             <p className="pt-4">That creates a dangerous loop:</p>
             <ul className="list-disc space-y-3 pl-6 marker:text-[#8AA882]">
@@ -93,7 +93,7 @@ export default function FounderBrandAuditPage() {
               <li>Supports the business instead of consuming the founder.</li>
             </ul>
             <p className="pt-8 font-serif text-2xl leading-snug text-[#F7F9F5] md:text-3xl">
-              Your personal brand should be a distribution system for your ideas — not a performance you have to maintain every day.
+              Your personal brand should be a distribution system for your ideas, not a performance you have to maintain every day.
             </p>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function FounderBrandAuditPage() {
         <div className="mx-auto max-w-2xl">
           <h2 className="mb-8 font-serif text-3xl text-[#F7F9F5] md:text-5xl">Take the Founder Brand Audit</h2>
           <p className="mb-12 text-xl font-light text-[#D8E2D1] md:text-2xl">
-            In 5 minutes, you'll see whether your brand is built like a creator's brand or a founder's brand — and what to fix first.
+            In 5 minutes, you'll see whether your brand is built like a creator's brand or a founder's brand, and what to fix first.
           </p>
           <a 
             href="mailto:hellod2cora@gmail.com"

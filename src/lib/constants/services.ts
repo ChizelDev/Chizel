@@ -60,4 +60,38 @@ export const serviceCategories = [
         bestFor: "B2C brands aiming to dominate social conversations and D2C companies wanting to build viral brand loyalty.",
         templateImage: "/assets/services pemplates/Social media marketing.png"
     },
+    {
+        id: 4,
+        category: "Website Development",
+        quote: "Website *ऐसी, जो* VISITORS *को* CLIENTS *बना दे*।",
+        items: ["UI/UX Design", "E-commerce Development", "CRO & Landing Pages", "Performance Optimization"],
+        overview: "We build fast, scalable, and conversion-optimized websites that not only look stunning but drive measurable business results.",
+        images: [],
+        problems: [
+            "High bounce rates and slow loading speeds",
+            "Poor mobile experience causing drop-offs",
+            "Low conversion rates from visitors to buyers",
+            "Outdated design that fails to build trust"
+        ],
+        outcomes: "A premium digital storefront, higher conversion rates, lightning-fast load times, and a seamless user experience.",
+        bestFor: "D2C brands and modern businesses needing a high-performance digital presence to scale their operations.",
+        templateImage: "/assets/services/website-development-v2.png"
+    },
+    {
+        id: 5,
+        category: "Search Engine Optimization",
+        quote: "Search *करो या ना करो, हम आपको* Search *में ले आएंगे*।",
+        items: ["Technical SEO", "On-Page Optimization", "Off-Page & Link Building", "Local SEO"],
+        overview: "We optimize your digital footprint to ensure you rank at the top of search results. Our data-driven SEO strategies drive high-intent organic traffic that converts.",
+        images: [],
+        problems: [
+            "Invisible on Google when customers search for your products",
+            "High reliance on expensive paid ads for all traffic",
+            "Poor website architecture hindering search engine crawling",
+            "Competitors consistently outranking you for key terms"
+        ],
+        outcomes: "Top-tier search rankings, sustainable organic traffic growth, lower overall customer acquisition costs, and increased brand authority.",
+        bestFor: "Brands seeking long-term, compounding organic growth and reduced dependency on paid advertising.",
+        templateImage: "/assets/services/seo.png"
+    }
 ];

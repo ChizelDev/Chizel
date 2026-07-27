@@ -91,6 +91,7 @@ export const Navbar = React.memo(function Navbar() {
         { href: "/", label: "Home" },
         { href: "/about", label: "About Us" },
         { href: "/services", label: "Services" },
+        { href: "/case-studies", label: "Our Work" },
         { href: "/blog", label: "Blog" },
         { href: "/contact", label: "Contact us" },
     ], []);

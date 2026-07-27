@@ -94,13 +94,13 @@ export function Footer() {
                                 <p>Registered Office: C/O US Nagar, Uttarakhand 262308, India</p>
                                 <p>Udyam Registration No: UDYAM-UK-12-0072212</p>
                             </div>
-                            
+
                             <p className="mb-6 text-sm font-bold uppercase tracking-widest text-[#001A33]">
-                                IF IT'S D2C, IT'S d2cora
+                                IF IT'S D2C, IT'S D2CORA
                             </p>
                             <div className="flex gap-4">
                                 <a
-                                    href="https://www.linkedin.com/company/113014979/"
+                                    href="https://in.linkedin.com/company/d2cora1"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex h-9 w-9 items-center justify-center rounded-full border border-blue-100 bg-blue-50/50 text-[#001A33] transition-all duration-300 hover:bg-[#001A33] hover:text-white"
@@ -120,14 +120,14 @@ export function Footer() {
                         transition={{ duration: 1, ease: "easeOut" }}
                         className="text-center text-[15vw] font-bold leading-[0.8] tracking-tighter text-[#000d1a] opacity-[0.06] lg:text-[18vw]"
                     >
-                        d2cora
+                        D2CORA
                     </motion.h2>
                 </div>
 
                 {/* Bottom Bar */}
                 <div className="mt-12 flex flex-col items-center justify-between gap-6 border-t border-gray-100 pt-8 md:flex-row">
                     <p className="text-sm font-bold uppercase tracking-[0.2em] text-black">
-                        © {currentYear} d2cora. All rights reserved.
+                        © {currentYear} D2CORA. All rights reserved.
                     </p>
                     <div className="flex gap-8">
                         <Link href="/privacy-policy" className="text-sm font-bold uppercase tracking-[0.2em] text-black transition-colors hover:text-[#3366FF]">Privacy Policy</Link>
