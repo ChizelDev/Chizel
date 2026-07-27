@@ -39,6 +39,161 @@ export default function AboutPage() {
                 </motion.div>
             </section>
 
+            {/* Meet the Founders */}
+            <section className="py-24 md:py-32 bg-[#f8f9fa]">
+                <div className="max-w-350 mx-auto px-6 md:px-12 lg:px-20">
+
+                    {/* Section Header */}
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeUp}
+                        className="mb-20"
+                    >
+                        <span className="mb-5 inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">
+                            The Minds Behind d2cora
+                        </span>
+                        <h2 className="mt-4 max-w-3xl text-4xl font-black leading-[1.05] tracking-tighter text-black md:text-6xl">
+                            Leadership built on vision and craft.
+                        </h2>
+                        <p className="mt-5 max-w-xl text-lg font-medium text-gray-500">
+                            d2cora was not born in a boardroom. It was built from a shared frustration with how fragmented and ineffective digital growth had become for real businesses.
+                        </p>
+                    </motion.div>
+
+                    {/* Founder Cards */}
+                    <div className="grid gap-8 lg:grid-cols-2">
+
+                        {/* Rahul Bora */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-60px" }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-gray-100 transition-shadow hover:shadow-md md:p-10"
+                        >
+                            {/* Top row: photo + name */}
+                            <div className="flex items-start gap-6">
+                                <div className="relative shrink-0">
+                                    <div className="h-20 w-20 overflow-hidden rounded-2xl shadow-md ring-2 ring-gray-100">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src="/assets/rahul-bora.jpg"
+                                            alt="Rahul Bora, Founder of d2cora"
+                                            className="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black tracking-tight text-black">Rahul Bora</h3>
+                                    <p className="mt-1 text-xs font-bold uppercase tracking-widest text-[#3366FF]">Founder &amp; CEO</p>
+                                    <span className="mt-2 inline-block rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-500">
+                                        Strategy · Systems · Growth
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Bio */}
+                            <p className="mt-6 text-base font-medium leading-relaxed text-gray-600">
+                                Rahul started d2cora after seeing too many businesses spend money on digital without any real strategy or results. With a deep obsession for systems thinking and execution, he set out to build an agency that treats growth like an engineering problem: methodical, measurable, and unstoppable.
+                            </p>
+
+                            {/* Quote */}
+                            <div className="mt-6 border-l-2 border-[#3366FF] pl-5">
+                                <p className="text-base italic leading-relaxed text-gray-700">
+                                    Most businesses don&apos;t fail online because they lack ideas. They fail because no one owns the full picture. d2cora was built to own that picture for every client we work with.
+                                </p>
+                                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-gray-400">Rahul Bora, Founder</p>
+                            </div>
+                        </motion.div>
+
+                        {/* Anishka Choudhary */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-60px" }}
+                            transition={{ duration: 0.6, delay: 0.12, ease: "easeOut" }}
+                            className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-gray-100 transition-shadow hover:shadow-md md:p-10"
+                        >
+                            {/* Top row: photo + name */}
+                            <div className="flex items-start gap-6">
+                                <div className="relative shrink-0">
+                                    <div className="h-20 w-20 overflow-hidden rounded-2xl shadow-md ring-2 ring-gray-100">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src="/assets/anishka-choudhary.png"
+                                            alt="Anishka Choudhary, Co-Founder of d2cora"
+                                            className="h-full w-full object-cover object-top transition-all duration-500"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-black tracking-tight text-black">Anishka Choudhary</h3>
+                                    <p className="mt-1 text-xs font-bold uppercase tracking-widest text-[#FF5722]">Co-Founder &amp; Creative Director</p>
+                                    <span className="mt-2 inline-block rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-500">
+                                        Design · Brand · Experience
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Bio */}
+                            <p className="mt-6 text-base font-medium leading-relaxed text-gray-600">
+                                Anishka brings the creative intelligence to d2cora that transforms strategy into experiences people remember. Her conviction is that great design is not decoration. It is the engine of trust. She ensures every brand d2cora builds feels as premium as it performs.
+                            </p>
+
+                            {/* Quote */}
+                            <div className="mt-6 border-l-2 border-[#FF5722] pl-5">
+                                <p className="text-base italic leading-relaxed text-gray-700">
+                                    People make decisions with their eyes before they think with their minds. If your brand does not inspire confidence at first glance, you have already lost. We build brands that win before a word is read.
+                                </p>
+                                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-gray-400">Anishka Choudhary, Co-Founder</p>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Origin Story */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, delay: 0.15 }}
+                        className="mt-12 grid items-stretch gap-0 overflow-hidden rounded-3xl bg-[#1a1a2e] lg:grid-cols-[1fr_auto]"
+                    >
+                        <div className="flex flex-col justify-center px-10 py-12 md:px-14">
+                            <span className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">How It Started</span>
+                            <h3 className="mb-5 text-2xl font-black leading-tight tracking-tight text-white md:text-3xl">
+                                Two builders. One mission. Zero compromises.
+                            </h3>
+                            <p className="max-w-lg text-base font-medium leading-relaxed text-gray-400">
+                                Rahul and Anishka didn&apos;t set out to run an agency. They wanted to build a machine that could consistently turn business goals into digital reality, combining systems thinking with creative mastery.
+                            </p>
+                        </div>
+                        <div className="flex items-center justify-center bg-[#3366FF] px-10 py-12 md:min-w-[340px] md:px-14">
+                            <div>
+                                <p className="text-xl font-black leading-snug tracking-tight text-white md:text-2xl">
+                                    Build it right.<br />Make it grow.<br />Never stop improving.
+                                </p>
+                                <div className="mt-8 flex items-center gap-3">
+                                    <div className="flex -space-x-2">
+                                        <div className="h-9 w-9 overflow-hidden rounded-full ring-2 ring-[#3366FF]">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img src="/assets/rahul-bora.jpg" alt="Rahul Bora" className="h-full w-full object-cover object-top" />
+                                        </div>
+                                        <div className="h-9 w-9 overflow-hidden rounded-full ring-2 ring-[#3366FF]">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img src="/assets/anishka-choudhary.png" alt="Anishka Choudhary" className="h-full w-full object-cover object-top" />
+                                        </div>
+                                    </div>
+                                    <span className="text-sm font-semibold text-white/80">Rahul &amp; Anishka</span>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                </div>
+            </section>
+
             {/* From Idea to Scale */}
             <section className="max-w-350 mx-auto px-6 py-16 md:px-12 lg:px-20">
                 <motion.div
@@ -274,160 +429,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Meet the Founders */}
-            <section className="py-24 md:py-32 bg-[#f8f9fa]">
-                <div className="max-w-350 mx-auto px-6 md:px-12 lg:px-20">
-
-                    {/* Section Header */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeUp}
-                        className="mb-20"
-                    >
-                        <span className="mb-5 inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">
-                            The Minds Behind d2cora
-                        </span>
-                        <h2 className="mt-4 max-w-3xl text-4xl font-black leading-[1.05] tracking-tighter text-black md:text-6xl">
-                            Leadership built on vision and craft.
-                        </h2>
-                        <p className="mt-5 max-w-xl text-lg font-medium text-gray-500">
-                            d2cora was not born in a boardroom. It was built from a shared frustration with how fragmented and ineffective digital growth had become for real businesses.
-                        </p>
-                    </motion.div>
-
-                    {/* Founder Cards */}
-                    <div className="grid gap-8 lg:grid-cols-2">
-
-                        {/* Rahul Bora */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-60px" }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-gray-100 transition-shadow hover:shadow-md md:p-10"
-                        >
-                            {/* Top row: photo + name */}
-                            <div className="flex items-start gap-6">
-                                <div className="relative shrink-0">
-                                    <div className="h-20 w-20 overflow-hidden rounded-2xl shadow-md ring-2 ring-gray-100">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img
-                                            src="/assets/rahul-bora.jpg"
-                                            alt="Rahul Bora, Founder of d2cora"
-                                            className="h-full w-full object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-black tracking-tight text-black">Rahul Bora</h3>
-                                    <p className="mt-1 text-xs font-bold uppercase tracking-widest text-[#3366FF]">Founder &amp; CEO</p>
-                                    <span className="mt-2 inline-block rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-500">
-                                        Strategy · Systems · Growth
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Bio */}
-                            <p className="mt-6 text-base font-medium leading-relaxed text-gray-600">
-                                Rahul started d2cora after seeing too many businesses spend money on digital without any real strategy or results. With a deep obsession for systems thinking and execution, he set out to build an agency that treats growth like an engineering problem: methodical, measurable, and unstoppable.
-                            </p>
-
-                            {/* Quote */}
-                            <div className="mt-6 border-l-2 border-[#3366FF] pl-5">
-                                <p className="text-base italic leading-relaxed text-gray-700">
-                                    Most businesses don&apos;t fail online because they lack ideas. They fail because no one owns the full picture. d2cora was built to own that picture for every client we work with.
-                                </p>
-                                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-gray-400">Rahul Bora, Founder</p>
-                            </div>
-                        </motion.div>
-
-                        {/* Anishka Choudhary */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-60px" }}
-                            transition={{ duration: 0.6, delay: 0.12, ease: "easeOut" }}
-                            className="group relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-gray-100 transition-shadow hover:shadow-md md:p-10"
-                        >
-                            {/* Top row: photo + name */}
-                            <div className="flex items-start gap-6">
-                                <div className="relative shrink-0">
-                                    <div className="h-20 w-20 overflow-hidden rounded-2xl shadow-md ring-2 ring-gray-100">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img
-                                            src="/assets/anishka-choudhary.png"
-                                            alt="Anishka Choudhary, Co-Founder of d2cora"
-                                            className="h-full w-full object-cover object-top transition-all duration-500"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-black tracking-tight text-black">Anishka Choudhary</h3>
-                                    <p className="mt-1 text-xs font-bold uppercase tracking-widest text-[#FF5722]">Co-Founder &amp; Creative Director</p>
-                                    <span className="mt-2 inline-block rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-500">
-                                        Design · Brand · Experience
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Bio */}
-                            <p className="mt-6 text-base font-medium leading-relaxed text-gray-600">
-                                Anishka brings the creative intelligence to d2cora that transforms strategy into experiences people remember. Her conviction is that great design is not decoration. It is the engine of trust. She ensures every brand d2cora builds feels as premium as it performs.
-                            </p>
-
-                            {/* Quote */}
-                            <div className="mt-6 border-l-2 border-[#FF5722] pl-5">
-                                <p className="text-base italic leading-relaxed text-gray-700">
-                                    People make decisions with their eyes before they think with their minds. If your brand does not inspire confidence at first glance, you have already lost. We build brands that win before a word is read.
-                                </p>
-                                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-gray-400">Anishka Choudhary, Co-Founder</p>
-                            </div>
-                        </motion.div>
-                    </div>
-
-                    {/* Origin Story */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 24 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.15 }}
-                        className="mt-12 grid items-stretch gap-0 overflow-hidden rounded-3xl bg-[#1a1a2e] lg:grid-cols-[1fr_auto]"
-                    >
-                        <div className="flex flex-col justify-center px-10 py-12 md:px-14">
-                            <span className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">How It Started</span>
-                            <h3 className="mb-5 text-2xl font-black leading-tight tracking-tight text-white md:text-3xl">
-                                Two builders. One mission. Zero compromises.
-                            </h3>
-                            <p className="max-w-lg text-base font-medium leading-relaxed text-gray-400">
-                                Rahul and Anishka didn&apos;t set out to run an agency. They wanted to build a machine that could consistently turn business goals into digital reality, combining systems thinking with creative mastery.
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center bg-[#3366FF] px-10 py-12 md:min-w-[340px] md:px-14">
-                            <div>
-                                <p className="text-xl font-black leading-snug tracking-tight text-white md:text-2xl">
-                                    Build it right.<br />Make it grow.<br />Never stop improving.
-                                </p>
-                                <div className="mt-8 flex items-center gap-3">
-                                    <div className="flex -space-x-2">
-                                        <div className="h-9 w-9 overflow-hidden rounded-full ring-2 ring-[#3366FF]">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img src="/assets/rahul-bora.jpg" alt="Rahul Bora" className="h-full w-full object-cover object-top" />
-                                        </div>
-                                        <div className="h-9 w-9 overflow-hidden rounded-full ring-2 ring-[#3366FF]">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img src="/assets/anishka-choudhary.png" alt="Anishka Choudhary" className="h-full w-full object-cover object-top" />
-                                        </div>
-                                    </div>
-                                    <span className="text-sm font-semibold text-white/80">Rahul &amp; Anishka</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                </div>
-            </section>
 
             {/* CTA Section */}
             <section className="py-24 md:py-32">
