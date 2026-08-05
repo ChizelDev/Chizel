@@ -237,15 +237,13 @@ export function Hero() {
       <motion.div
         layout
         transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-        className={`relative z-10 flex w-full items-center px-6 md:px-14 lg:px-20 ${
-          isCentered ? "justify-center" : "justify-start"
-        }`}
+        className={`relative z-10 flex w-full items-center px-6 md:px-14 lg:px-20 ${isCentered ? "justify-center" : "justify-start"
+          }`}
       >
         <motion.div
           layout
-          className={`flex flex-col ${
-            isCentered ? "items-center text-center" : "items-start text-left"
-          }`}
+          className={`flex flex-col ${isCentered ? "items-center text-center" : "items-start text-left"
+            }`}
           transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div className="flex items-baseline gap-[0.15em] leading-none" {...fadeUp(0.2)}>

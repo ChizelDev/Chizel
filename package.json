@@ -28,6 +28,7 @@
     "next-mdx-remote": "^6.0.0",
     "next-sanity": "^13.1.1",
     "react": "19.2.3",
+    "react-calendly": "^4.4.0",
     "react-dom": "19.2.3",
     "resend": "^6.9.2",
     "sanity": "^6.1.0",

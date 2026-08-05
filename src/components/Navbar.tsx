@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { PopupModal } from "react-calendly";
 
 import React, { useCallback, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
@@ -14,6 +15,14 @@ export const Navbar = React.memo(function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isDarkBackground, setIsDarkBackground] = useState(false);
+    const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+    const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setRootElement(document.body);
+        }
+    }, []);
 
     if (pathname?.startsWith('/studio')) return null;
 
@@ -88,12 +97,10 @@ export const Navbar = React.memo(function Navbar() {
     }, [mobileMenuOpen]);
 
     const navLinks = useMemo(() => [
-        { href: "/", label: "Home" },
         { href: "/about", label: "About Us" },
         { href: "/services", label: "Services" },
         { href: "/case-studies", label: "Our Work" },
         { href: "/blog", label: "Blog" },
-        { href: "/contact", label: "Contact us" },
     ], []);
 
     const handleLinkClick = useCallback(() => {
@@ -225,18 +232,18 @@ export const Navbar = React.memo(function Navbar() {
                                 </svg>
                             </a>
                             {/* CTA Button */}
-                            <Link
-                                href="/contact"
+                            <button
+                                onClick={() => setIsCalendlyOpen(true)}
                                 className={`flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-normal backdrop-blur-sm transition-all duration-300 md:px-4 md:py-2.5 md:text-sm lg:gap-2 lg:px-5 ${isDarkBackground
                                     ? "border-white/30 bg-white/10 text-white hover:bg-white hover:text-black"
                                     : "border-black/30 bg-black/10 text-black hover:bg-black hover:text-white"
                                     }`}
                             >
-                                <span>Get Started</span>
+                                <span>Book a Call</span>
                                 <svg className="hidden h-4 w-4 lg:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </motion.nav>
@@ -322,23 +329,34 @@ export const Navbar = React.memo(function Navbar() {
                                         </svg>
                                         WhatsApp Us
                                     </a>
-                                    <Link
-                                        href="/contact"
-                                        onClick={handleLinkClick}
+                                    <button
+                                        onClick={() => {
+                                            handleLinkClick();
+                                            setIsCalendlyOpen(true);
+                                        }}
                                         className="flex w-full items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-3 text-center text-sm font-normal text-white transition-all duration-300 hover:bg-white hover:text-black"
                                     >
-                                        <span>Get Started</span>
+                                        <span>Book a Call</span>
                                         <span className="text-xs opacity-70">• its free</span>
                                         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                         </svg>
-                                    </Link>
+                                    </button>
                                 </motion.div>
                             </div>
                         </motion.div>
                     </>
                 )}
             </AnimatePresence>
+
+            {isCalendlyOpen && rootElement && (
+                <PopupModal
+                    url="https://calendly.com/d2cora22"
+                    onModalClose={() => setIsCalendlyOpen(false)}
+                    open={isCalendlyOpen}
+                    rootElement={rootElement}
+                />
+            )}
         </>
     );
 });
