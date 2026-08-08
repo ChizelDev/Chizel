@@ -91,6 +91,8 @@ function TypingIndicator() {
 // ─── Main Component ───────────────────────────────────────────────────────────
 export function SalesChatbot() {
     const [isOpen, setIsOpen] = useState(false);
+    const [showMobilePreview, setShowMobilePreview] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState("");
     const [isTyping, setIsTyping] = useState(false);
@@ -107,6 +109,7 @@ export function SalesChatbot() {
         hasAskedForCall: false,
         userName: null,
     });
+    const [showCalendlyModal, setShowCalendlyModal] = useState(false);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -138,14 +141,21 @@ export function SalesChatbot() {
         sessionStorage.setItem("cora_conv_state", JSON.stringify(convState));
     }, [convState]);
 
-    // ── Auto-open after 5s ────────────────────────────────────────────────────
+    // ── Detect mobile ──────────────────────────────────────────────────────────
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+
+    // ── Auto-open after 5s (tooltip only on mobile, full open on desktop) ──────
     useEffect(() => {
         if (hasAutoOpened || messages.length > 0) return;
 
         const tooltipTimer = setTimeout(() => setShowTooltip(true), 3000);
         const openTimer = setTimeout(() => {
             setShowTooltip(false);
-            setIsOpen(true);
             setHasAutoOpened(true);
 
             const greeting = getInitialGreeting(pathname);
@@ -156,6 +166,13 @@ export function SalesChatbot() {
                 actions: greeting.actions,
             }]);
             setUnreadCount(1);
+
+            // On mobile: show preview popup. On desktop: open full chat.
+            if (window.innerWidth >= 768) {
+                setIsOpen(true);
+            } else {
+                setShowMobilePreview(true);
+            }
         }, 5000);
 
         return () => { clearTimeout(tooltipTimer); clearTimeout(openTimer); };
@@ -261,10 +278,51 @@ export function SalesChatbot() {
     };
 
     // ─── Render ───────────────────────────────────────────────────────────────
+    const openChat = () => {
+        setShowTooltip(false);
+        setShowMobilePreview(false);
+        setIsOpen(true);
+        setUnreadCount(0);
+        if (messages.length === 0) {
+            const greeting = getInitialGreeting(pathname);
+            setMessages([{ id: Date.now().toString(), role: "assistant", content: greeting.message, actions: greeting.actions }]);
+        }
+    };
+
+    const closeChat = () => {
+        setIsOpen(false);
+        setShowCalendlyModal(false);
+    };
+
     return (
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] flex flex-col items-end gap-3">
 
-            {/* ── Chat Window ──────────────────────────────────────────────── */}
+            {/* ── Full-screen Calendly Modal (mobile) ──────────────────── */}
+            <AnimatePresence>
+                {showCalendlyModal && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[99999] bg-white flex flex-col"
+                    >
+                        <div className="flex items-center justify-between bg-gradient-to-r from-[#1524ca] to-[#0d1899] px-4 py-3">
+                            <div className="flex items-center gap-2">
+                                <Calendar className="h-4 w-4 text-white" />
+                                <span className="text-sm font-semibold text-white">Book a Free Strategy Call</span>
+                            </div>
+                            <button onClick={() => setShowCalendlyModal(false)} className="rounded-full p-1.5 text-white/70 hover:text-white hover:bg-white/20">
+                                <X className="h-5 w-5" />
+                            </button>
+                        </div>
+                        <div className="flex-1 overflow-auto">
+                            <InlineWidget url="https://calendly.com/d2cora22" styles={{ height: "100%", minHeight: "600px", width: "100%" }} />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* ── Chat Window (full-screen on mobile, floating on desktop) ─── */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -272,10 +330,10 @@ export function SalesChatbot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.93 }}
                         transition={{ type: "spring", stiffness: 420, damping: 32 }}
-                        className="mb-2 flex h-[620px] max-h-[calc(100dvh-100px)] w-[390px] max-w-[calc(100vw-32px)] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-[0_24px_80px_rgba(0,0,60,0.18)]"
+                        className="fixed inset-0 md:relative md:inset-auto mb-0 md:mb-2 flex flex-col overflow-hidden md:rounded-3xl border-0 md:border border-gray-200 bg-white shadow-none md:shadow-[0_24px_80px_rgba(0,0,60,0.18)] md:h-[620px] md:max-h-[calc(100dvh-100px)] md:w-[390px] md:max-w-[calc(100vw-32px)] z-[9998]"
                     >
                         {/* ── Header ─────────────────────────────────────────── */}
-                        <div className="relative flex items-center justify-between overflow-hidden bg-gradient-to-r from-[#1524ca] to-[#0d1899] px-5 py-4">
+                        <div className="relative flex items-center justify-between overflow-hidden bg-gradient-to-r from-[#1524ca] to-[#0d1899] px-5 py-4" style={{ paddingTop: 'max(1rem, env(safe-area-inset-top))' }}>
                             {/* Decorative circles */}
                             <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/10" />
                             <div className="pointer-events-none absolute -bottom-8 left-20 h-20 w-20 rounded-full bg-white/5" />
@@ -303,7 +361,7 @@ export function SalesChatbot() {
                                     <RotateCcw className="h-3.5 w-3.5" />
                                 </button>
                                 <button
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={closeChat}
                                     className="rounded-full p-2 text-white/50 transition hover:bg-white/15 hover:text-white"
                                 >
                                     <ChevronDown className="h-4 w-4" />
@@ -377,24 +435,36 @@ export function SalesChatbot() {
                                                     </motion.div>
                                                 )}
 
-                                                {/* Calendly */}
+                                                {/* Calendly — opens full-screen on mobile, inline on desktop */}
                                                 {msg.actions.showCalendly && (
-                                                    <motion.div
-                                                        initial={{ opacity: 0, y: 8 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ delay: 0.18 }}
-                                                        className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg"
-                                                        style={{ height: 380 }}
-                                                    >
-                                                        <div className="flex items-center gap-2 bg-gradient-to-r from-[#1524ca] to-[#0d1899] px-4 py-2.5">
-                                                            <Calendar className="h-4 w-4 text-white" />
-                                                            <span className="text-xs font-semibold text-white">Book a Free Strategy Call</span>
-                                                        </div>
-                                                        <InlineWidget
-                                                            url="https://calendly.com/d2cora22"
-                                                            styles={{ height: "340px", width: "100%" }}
-                                                        />
-                                                    </motion.div>
+                                                    isMobile ? (
+                                                        <motion.button
+                                                            initial={{ opacity: 0, y: 8 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            onClick={() => setShowCalendlyModal(true)}
+                                                            className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[#1524ca] to-[#0d1899] px-5 py-3 text-sm font-semibold text-white shadow-lg w-full justify-center"
+                                                        >
+                                                            <Calendar className="h-4 w-4" />
+                                                            Book a Free Strategy Call
+                                                        </motion.button>
+                                                    ) : (
+                                                        <motion.div
+                                                            initial={{ opacity: 0, y: 8 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ delay: 0.18 }}
+                                                            className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg"
+                                                            style={{ height: 380 }}
+                                                        >
+                                                            <div className="flex items-center gap-2 bg-gradient-to-r from-[#1524ca] to-[#0d1899] px-4 py-2.5">
+                                                                <Calendar className="h-4 w-4 text-white" />
+                                                                <span className="text-xs font-semibold text-white">Book a Free Strategy Call</span>
+                                                            </div>
+                                                            <InlineWidget
+                                                                url="https://calendly.com/d2cora22"
+                                                                styles={{ height: "340px", width: "100%" }}
+                                                            />
+                                                        </motion.div>
+                                                    )
                                                 )}
 
                                                 {/* Quick replies */}
@@ -467,7 +537,7 @@ export function SalesChatbot() {
                         <div className="h-px w-full bg-gray-100" />
 
                         {/* ── Input ──────────────────────────────────────────── */}
-                        <div className="bg-white px-4 py-3.5">
+                        <div className="bg-white px-4 py-3.5" style={{ paddingBottom: 'max(0.875rem, env(safe-area-inset-bottom))' }}>
                             <form
                                 onSubmit={(e) => { e.preventDefault(); handleSend(input); }}
                                 className="flex items-center gap-2"
@@ -497,19 +567,38 @@ export function SalesChatbot() {
                 )}
             </AnimatePresence>
 
-            {/* ── Tooltip bubble ─────────────────────────────────────────────── */}
+            {/* ── Mobile Preview Bubble ──────────────────────────────────────── */}
             <AnimatePresence>
-                {showTooltip && !isOpen && (
+                {(showMobilePreview || (showTooltip && !isOpen)) && !isOpen && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.85, y: 8 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.85, y: 8 }}
-                        className="mb-1 max-w-[220px] rounded-2xl rounded-br-sm border border-gray-200 bg-white px-4 py-3 shadow-xl"
+                        className="mb-1 w-[260px] rounded-2xl rounded-br-sm border border-gray-200 bg-white p-4 shadow-xl"
                     >
-                        <p className="text-[13px] font-semibold text-gray-800">
-                            👋 Hi! Need help growing your brand?
-                        </p>
-                        <p className="mt-0.5 text-[11px] text-[#1524ca] font-medium">Chat with Cora →</p>
+                        <div className="flex items-center gap-2 mb-2">
+                            <CoraAvatar size={32} ring />
+                            <div>
+                                <p className="text-[12px] font-bold text-gray-800">Cora · d2cora</p>
+                                <p className="text-[10px] text-green-500 font-medium">● Online now</p>
+                            </div>
+                        </div>
+                        {messages.length > 0 && (
+                            <p className="text-[12px] text-gray-600 leading-snug mb-3 line-clamp-2">
+                                {messages[messages.length - 1].content.slice(0, 90)}…
+                            </p>
+                        )}
+                        {messages.length === 0 && (
+                            <p className="text-[12px] text-gray-600 leading-snug mb-3">
+                                👋 Hi! Need help growing your brand?
+                            </p>
+                        )}
+                        <button
+                            onClick={openChat}
+                            className="w-full rounded-xl bg-gradient-to-r from-[#1524ca] to-[#0d1899] py-2 text-[12px] font-bold text-white"
+                        >
+                            Chat with Cora →
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -518,7 +607,17 @@ export function SalesChatbot() {
             <motion.button
                 whileHover={{ scale: 1.06, y: -2 }}
                 whileTap={{ scale: 0.93 }}
-                onClick={() => { setShowTooltip(false); setIsOpen((v) => !v); }}
+                onClick={() => {
+                    setShowTooltip(false);
+                    if (isOpen) {
+                        closeChat();
+                    } else if (isMobile) {
+                        // On mobile: toggle preview bubble
+                        setShowMobilePreview((v) => !v);
+                    } else {
+                        openChat();
+                    }
+                }}
                 aria-label="Chat with Cora"
                 className={`relative flex h-[68px] w-[68px] items-center justify-center rounded-full shadow-2xl transition-all duration-300 ${
                     isOpen
