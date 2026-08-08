@@ -567,6 +567,14 @@ export function SalesChatbot() {
                 )}
             </AnimatePresence>
 
+            {/* ── Mobile Preview Bubble backdrop (dismiss on outside tap) ──────── */}
+            {(showMobilePreview || (showTooltip && !isOpen)) && !isOpen && (
+                <div
+                    className="fixed inset-0 z-[9990]"
+                    onClick={() => { setShowMobilePreview(false); setShowTooltip(false); }}
+                />
+            )}
+
             {/* ── Mobile Preview Bubble ──────────────────────────────────────── */}
             <AnimatePresence>
                 {(showMobilePreview || (showTooltip && !isOpen)) && !isOpen && (
@@ -574,8 +582,15 @@ export function SalesChatbot() {
                         initial={{ opacity: 0, scale: 0.85, y: 8 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.85, y: 8 }}
-                        className="mb-1 w-[260px] rounded-2xl rounded-br-sm border border-gray-200 bg-white p-4 shadow-xl"
+                        className="relative mb-1 w-[260px] rounded-2xl rounded-br-sm border border-gray-200 bg-white p-4 shadow-xl z-[9995]"
                     >
+                        {/* X close button */}
+                        <button
+                            onClick={() => { setShowMobilePreview(false); setShowTooltip(false); }}
+                            className="absolute top-2 right-2 rounded-full p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition"
+                        >
+                            <X className="h-3.5 w-3.5" />
+                        </button>
                         <div className="flex items-center gap-2 mb-2">
                             <CoraAvatar size={32} ring />
                             <div>
