@@ -57,7 +57,7 @@ export function TrustSignal() {
                     <div className="mb-4 flex items-center gap-3">
                         <span className="inline-block h-[4px] w-6 bg-black" />
                         <p className="text-sm font-black uppercase tracking-[0.18em] text-black">
-                            14 Days Results
+                            Record Breaking Results
                         </p>
                     </div>
                     <div className="overflow-hidden rounded-3xl shadow-2xl">
@@ -85,11 +85,11 @@ export function TrustSignal() {
             >
                 <a
                     href="/contact"
-                    className="group inline-flex items-center gap-3 rounded-full bg-black px-8 py-4 text-sm font-bold text-white shadow-lg shadow-black/10 transition-all duration-300 hover:bg-neutral-800 hover:scale-105 active:scale-95"
+                    className="group inline-flex items-center gap-3 border-2 px-8 py-4 font-mono text-sm font-bold uppercase tracking-[0.15em] transition-all duration-300 bg-transparent border-white text-white hover:bg-white hover:text-[#86c6a6]"
                 >
                     Book A Free Consultation
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
-                        <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" />
                     </svg>
                 </a>
             </motion.div>

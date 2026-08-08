@@ -92,8 +92,11 @@ export default function Home() {
           </div>
           
           <div className="pt-10">
-             <a href="/contact" className="group inline-flex items-center gap-2 rounded-full border-2 border-[#1524ca] bg-transparent px-8 py-4 text-sm font-bold text-[#1524ca] transition-all duration-300 hover:bg-[#1524ca] hover:text-white active:scale-95">
+             <a href="/contact" className="group inline-flex items-center justify-center gap-3 border-2 px-8 py-4 font-mono text-sm font-bold uppercase tracking-[0.15em] transition-all duration-300 bg-transparent border-[#1524ca] text-[#1524ca] hover:bg-[#1524ca] hover:text-[#fffbeb] w-full max-w-sm md:w-auto md:max-w-none">
                Start Growing Today
+               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
+                 <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
+               </svg>
              </a>
           </div>
         </div>

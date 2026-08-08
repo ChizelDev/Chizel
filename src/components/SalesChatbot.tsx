@@ -262,7 +262,7 @@ export function SalesChatbot() {
 
     // ─── Render ───────────────────────────────────────────────────────────────
     return (
-        <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
+        <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] flex flex-col items-end gap-3">
 
             {/* ── Chat Window ──────────────────────────────────────────────── */}
             <AnimatePresence>
@@ -272,7 +272,7 @@ export function SalesChatbot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.93 }}
                         transition={{ type: "spring", stiffness: 420, damping: 32 }}
-                        className="mb-2 flex h-[620px] max-h-[85vh] w-[390px] max-w-[calc(100vw-24px)] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-[0_24px_80px_rgba(0,0,60,0.18)]"
+                        className="mb-2 flex h-[620px] max-h-[calc(100dvh-100px)] w-[390px] max-w-[calc(100vw-32px)] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-[0_24px_80px_rgba(0,0,60,0.18)]"
                     >
                         {/* ── Header ─────────────────────────────────────────── */}
                         <div className="relative flex items-center justify-between overflow-hidden bg-gradient-to-r from-[#1524ca] to-[#0d1899] px-5 py-4">

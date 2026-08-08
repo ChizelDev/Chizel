@@ -24,7 +24,7 @@ const lora = Lora({
 });
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.d2cora.com"),
-  title: "d2cora | Top Digital Marketing Agency for D2C Brands & Ecommerce Growth",
+  title: "D2CORA | Top Digital Marketing Agency for D2C Brands & Ecommerce Growth",
   description: "d2cora is a leading digital marketing agency for D2C brands, specializing in performance marketing, conversion rate optimization (CRO), and ecommerce growth strategies. Partner with us to scale your business and boost your revenue today.",
   keywords: ["digital marketing agency", "D2C brands", "performance marketing", "CRO", "ecommerce growth", "d2c marketing"],
 };

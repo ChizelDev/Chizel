@@ -26,6 +26,9 @@ function MobileIndustries() {
             <div className="grid grid-cols-2 gap-4">
                 {blockClusters.map((cluster, i) => {
                     const isWide = i === 0 || i === 3 || i === 6; 
+                    let color = "#1524ca";
+                    if (i === 2 || i === 4) color = "#ff6b00"; // Orange
+                    else if (i === 5) color = "#16a34a"; // Green
                     const Icon = cluster.icon;
                     
                     return (
@@ -39,20 +42,21 @@ function MobileIndustries() {
                                 delay: i * 0.1,
                                 ease: "easeOut"
                             }}
-                            className={`bg-white border-2 border-[#1524ca] p-5 flex flex-col gap-4 relative overflow-hidden ${isWide ? 'col-span-2' : 'col-span-1'}`}
+                            className={`bg-white border-2 p-5 flex flex-col gap-4 relative overflow-hidden ${isWide ? 'col-span-2' : 'col-span-1'}`}
+                            style={{ borderColor: color }}
                         >
                             {/* Technical blueprint grid background */}
-                            <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1524ca 1px, transparent 1px), linear-gradient(90deg, #1524ca 1px, transparent 1px)', backgroundSize: '10px 10px' }} />
+                            <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: `linear-gradient(${color} 1px, transparent 1px), linear-gradient(90deg, ${color} 1px, transparent 1px)`, backgroundSize: '10px 10px' }} />
                             
-                            <div className="absolute -right-6 -bottom-6 opacity-[0.03] pointer-events-none text-[#1524ca]">
+                            <div className="absolute -right-6 -bottom-6 opacity-[0.04] pointer-events-none" style={{ color }}>
                                 <Icon size={isWide ? 120 : 90} strokeWidth={1} />
                             </div>
                             
                             <div className="flex items-center gap-3 relative z-10">
-                                <div className="bg-white p-2.5 shrink-0 border-2 border-[#1524ca] shadow-[2px_2px_0px_#1524ca] text-[#1524ca] flex items-center justify-center">
+                                <div className="bg-white p-2.5 shrink-0 border-2 flex items-center justify-center" style={{ borderColor: color, boxShadow: `2px 2px 0px ${color}`, color }}>
                                     <Icon size={18} strokeWidth={2.5} />
                                 </div>
-                                <h3 className={`font-mono font-bold text-[#1524ca] uppercase tracking-wide ${isWide ? 'text-[15px]' : 'text-[12px]'} leading-tight`}>
+                                <h3 className={`font-mono font-bold uppercase tracking-wide ${isWide ? 'text-[15px]' : 'text-[12px]'} leading-tight`} style={{ color }}>
                                     {cluster.name}
                                 </h3>
                             </div>
@@ -61,7 +65,7 @@ function MobileIndustries() {
                             {cluster.subNiches && isWide && (
                                 <div className="flex flex-wrap gap-2 mt-2 relative z-10">
                                     {cluster.subNiches.map(niche => (
-                                        <span key={niche} className="text-[9px] bg-white shadow-[1px_1px_0px_#1524ca] text-[#1524ca] px-2 py-1 border border-[#1524ca] font-mono uppercase tracking-[0.1em]">
+                                        <span key={niche} className="text-[9px] bg-white px-2 py-1 border font-mono uppercase tracking-[0.1em]" style={{ color, borderColor: color, boxShadow: `1px 1px 0px ${color}` }}>
                                             {niche}
                                         </span>
                                     ))}
