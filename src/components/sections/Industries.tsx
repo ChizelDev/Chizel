@@ -20,6 +20,61 @@ export type BlockType = {
     explosionMultiplier: number;
 };
 
+function MobileIndustries() {
+    return (
+        <div className="w-full lg:hidden relative z-10 mt-8 mb-12 px-4 max-w-lg mx-auto">
+            <div className="grid grid-cols-2 gap-4">
+                {blockClusters.map((cluster, i) => {
+                    const isWide = i === 0 || i === 3 || i === 6; 
+                    const Icon = cluster.icon;
+                    
+                    return (
+                        <motion.div
+                            key={cluster.id}
+                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-5%" }}
+                            transition={{ 
+                                duration: 0.4, 
+                                delay: i * 0.1,
+                                ease: "easeOut"
+                            }}
+                            className={`bg-white border-2 border-[#1524ca] p-5 flex flex-col gap-4 relative overflow-hidden ${isWide ? 'col-span-2' : 'col-span-1'}`}
+                        >
+                            {/* Technical blueprint grid background */}
+                            <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1524ca 1px, transparent 1px), linear-gradient(90deg, #1524ca 1px, transparent 1px)', backgroundSize: '10px 10px' }} />
+                            
+                            <div className="absolute -right-6 -bottom-6 opacity-[0.03] pointer-events-none text-[#1524ca]">
+                                <Icon size={isWide ? 120 : 90} strokeWidth={1} />
+                            </div>
+                            
+                            <div className="flex items-center gap-3 relative z-10">
+                                <div className="bg-white p-2.5 shrink-0 border-2 border-[#1524ca] shadow-[2px_2px_0px_#1524ca] text-[#1524ca] flex items-center justify-center">
+                                    <Icon size={18} strokeWidth={2.5} />
+                                </div>
+                                <h3 className={`font-mono font-bold text-[#1524ca] uppercase tracking-wide ${isWide ? 'text-[15px]' : 'text-[12px]'} leading-tight`}>
+                                    {cluster.name}
+                                </h3>
+                            </div>
+                            
+                            {/* Structural sub-niches */}
+                            {cluster.subNiches && isWide && (
+                                <div className="flex flex-wrap gap-2 mt-2 relative z-10">
+                                    {cluster.subNiches.map(niche => (
+                                        <span key={niche} className="text-[9px] bg-white shadow-[1px_1px_0px_#1524ca] text-[#1524ca] px-2 py-1 border border-[#1524ca] font-mono uppercase tracking-[0.1em]">
+                                            {niche}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </motion.div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
 export function Industries() {
     const [isExpanded, setIsExpanded] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -133,7 +188,7 @@ export function Industries() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.2 }}
-                className="relative z-0 w-full max-w-6xl flex justify-center items-center cursor-pointer"
+                className="hidden lg:flex relative z-0 w-full max-w-6xl justify-center items-center cursor-pointer"
                 onMouseEnter={() => setIsExpanded(true)}
                 onMouseLeave={() => setIsExpanded(false)}
                 onClick={() => setIsExpanded(!isExpanded)}
@@ -248,6 +303,9 @@ export function Industries() {
                     </g>
                 </svg>
             </motion.div>
+
+            {/* Mobile View */}
+            <MobileIndustries />
         </section>
     );
 }

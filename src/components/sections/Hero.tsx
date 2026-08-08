@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useState, useEffect } from "react";
+import { PopupModal } from "react-calendly";
 
 const DARK = "#1524ca";
 const LIGHT = "#afccfb";
@@ -161,19 +162,6 @@ function MobileBackground() {
             "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(21,36,202,0.25) 0%, transparent 70%)",
         }}
       />
-      {/* Two subtle images, static no animation */}
-      <img
-        src="/assets/services/Untitled_design-removebg-preview.png"
-        alt=""
-        className="absolute right-[-10%] top-[5%] h-56 w-56 object-contain opacity-20"
-        loading="eager"
-      />
-      <img
-        src="/assets/services/speaker_social_marketing-removebg-preview.png"
-        alt=""
-        className="absolute bottom-[8%] right-[5%] h-32 w-32 object-contain opacity-15"
-        loading="eager"
-      />
     </div>
   );
 }
@@ -184,12 +172,22 @@ export function Hero() {
   const { scrollY } = useScroll();
   const [isCentered, setIsCentered] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
 
   // Only read isMobile once on mount
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMobile(window.innerWidth < 1024);
+    setRootElement(document.body);
   }, []);
+
+  useEffect(() => {
+    return scrollY.on("change", (latest) => {
+      setScrolled(latest > 40);
+    });
+  }, [scrollY]);
 
   // Parallax: only meaningful on desktop. On mobile scrollY listener adds main-thread cost.
   // We still create it but only apply it on desktop (avoids conditional hook)
@@ -242,44 +240,62 @@ export function Hero() {
       >
         <motion.div
           layout
-          className={`flex flex-col ${isCentered ? "items-center text-center" : "items-start text-left"
+          className={`flex w-full flex-col ${isCentered ? "items-center text-center" : "items-center text-center md:items-start md:text-left"
             }`}
           transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.div className="flex items-baseline gap-[0.15em] leading-none" {...fadeUp(0.2)}>
-            <span className="font-heading font-black uppercase"
-              style={{ color: DARK, fontSize: "clamp(3rem, 9vw, 8.5rem)", letterSpacing: "-0.03em", lineHeight: 1 }}>
-              Bold
-            </span>
-            <span className="font-heading font-bold"
-              style={{ color: DARK, fontSize: "clamp(1.1rem, 2.8vw, 2.6rem)", lineHeight: 1 }}>
-              ideas
-            </span>
+          <motion.div className="flex w-full flex-col gap-4" {...fadeUp(0.2)}>
+            <h1 className="flex flex-col uppercase text-center md:text-left w-full">
+              <span
+                className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-light tracking-widest leading-[1.2]"
+                style={{ color: DARK }}
+              >
+                SCALING BRANDS
+              </span>
+              <span
+                className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] font-light tracking-widest leading-[1.2]"
+                style={{ color: DARK }}
+              >
+                WITH PROVEN
+              </span>
+              <span
+                className="font-heading text-6xl sm:text-8xl md:text-9xl lg:text-[9rem] font-black tracking-tighter leading-[0.9] mt-4 md:mt-6 text-[#1524ca] bg-none md:text-transparent md:bg-clip-text md:bg-gradient-to-r md:from-[#1524ca] md:to-[#3b82f6]"
+                style={{ textShadow: "0 4px 32px rgba(21,36,202,0.15)" }}
+              >
+                MARKETING<br />SYSTEMS.
+              </span>
+            </h1>
           </motion.div>
 
-          <motion.div {...fadeUp(0.3)}>
-            <span className="font-heading block font-black uppercase"
-              style={{ color: LIGHT, fontSize: "clamp(3rem, 9vw, 8.5rem)", letterSpacing: "-0.03em", lineHeight: 1, textShadow: "0 2px 24px rgba(21,36,202,0.30)" }}>
-              Deserve
-            </span>
-          </motion.div>
-
-          <motion.div {...fadeUp(0.4)}>
-            <span className="font-heading block font-black uppercase"
-              style={{ color: DARK, fontSize: "clamp(3rem, 9vw, 8.5rem)", letterSpacing: "-0.03em", lineHeight: 1 }}>
-              Flawless
-            </span>
-          </motion.div>
-
-          <motion.div className="flex items-baseline gap-[0.15em] self-end leading-none" {...fadeUp(0.5)}>
-            <span className="font-heading font-bold"
-              style={{ color: DARK, fontSize: "clamp(1.1rem, 2.8vw, 2.6rem)", lineHeight: 1, textShadow: "0 2px 14px rgba(21,36,202,0.30)" }}>
-              execution
-            </span>
-            <span className="font-heading font-black uppercase"
-              style={{ color: "#0701a5ff", fontSize: "clamp(3rem, 9vw, 8.5rem)", letterSpacing: "-0.03em", lineHeight: 1, textShadow: "0 2px 24px rgba(34,197,94,0.35)" }}>
-              Always
-            </span>
+          {/* CTA below headline */}
+          <motion.div
+            className="mt-8 flex flex-col items-center md:items-start text-center md:text-left gap-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase leading-relaxed max-w-2xl" style={{ color: DARK, opacity: 0.7 }}>
+              We partner with ambitious D2C and service-based businesses to drive predictable revenue through data-driven performance marketing and flawless execution.
+            </p>
+            <button
+              onClick={() => setIsCalendlyOpen(true)}
+              data-scrolled={scrolled}
+              className="group relative inline-flex items-center gap-3 border-2 px-8 py-4 font-mono text-sm font-bold uppercase tracking-[0.15em] transition-all duration-300 bg-transparent border-[#1524ca] text-[#1524ca] hover:!bg-white hover:!border-white hover:!text-[#1524ca] data-[scrolled=true]:max-md:!bg-white data-[scrolled=true]:max-md:!border-white data-[scrolled=true]:max-md:!text-[#1524ca]"
+            >
+              Book A Call
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
+                <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
+              </svg>
+            </button>
+            
+            {isCalendlyOpen && rootElement && (
+              <PopupModal
+                url="https://calendly.com/d2cora22"
+                onModalClose={() => setIsCalendlyOpen(false)}
+                open={isCalendlyOpen}
+                rootElement={rootElement}
+              />
+            )}
           </motion.div>
         </motion.div>
       </motion.div>

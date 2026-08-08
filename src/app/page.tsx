@@ -78,16 +78,13 @@ export default function Home() {
         
         {/* Text Section (Left Half) */}
         <div className="flex w-full lg:w-1/2 flex-col justify-center px-8 py-20 md:px-16 lg:px-24">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1524ca] leading-[1.1] tracking-tight mb-8">
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
             Your Partner in <br />
-            <span className="text-[#0701a5]">
-              D2C Ecommerce Growth
-            </span>
-          </h2>
-          
-          <div className="flex flex-col gap-6">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1524ca] to-[#3b82f6]">Brand Growth</span>
+            </h2>
             <p className="text-lg md:text-xl font-medium leading-relaxed text-gray-700">
-              Scaling a direct-to-consumer brand requires more than just basic advertising. It demands a holistic, data-driven approach to performance marketing, conversion rate optimization, and customer retention. 
+              Scaling a business requires more than just basic advertising. Whether you're a direct-to-consumer ecommerce brand or a local service business, growth demands a holistic, data-driven approach to performance marketing, conversion rate optimization, and customer acquisition. 
             </p>
             <p className="text-lg md:text-xl font-medium leading-relaxed text-gray-700">
               We combine creative excellence with rigorous analytics to ensure every campaign is optimized for maximum ROI, turning your traffic into loyal customers and your spend into measurable profit.
@@ -95,7 +92,7 @@ export default function Home() {
           </div>
           
           <div className="pt-10">
-             <a href="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#1524ca] px-8 py-4 text-sm font-bold text-white transition-all hover:bg-[#0701a5] active:scale-95">
+             <a href="/contact" className="group inline-flex items-center gap-2 rounded-full border-2 border-[#1524ca] bg-transparent px-8 py-4 text-sm font-bold text-[#1524ca] transition-all duration-300 hover:bg-[#1524ca] hover:text-white active:scale-95">
                Start Growing Today
              </a>
           </div>
@@ -105,7 +102,7 @@ export default function Home() {
         <div className="relative hidden w-full md:block lg:w-1/2 md:min-h-[500px] lg:min-h-full">
            <Image 
              src="/assets/d2c-growth-partner.jpg" 
-             alt="Your Partner in D2C Ecommerce Growth" 
+             alt="Your Partner in Brand Growth" 
              fill
              className="object-cover object-center"
              sizes="(max-width: 1024px) 100vw, 50vw"
@@ -113,6 +110,7 @@ export default function Home() {
         </div>
         
       </section>
+
 
       <FAQ />
     </main>

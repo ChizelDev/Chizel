@@ -14,6 +14,7 @@ export const blockClusters = [
         blocks: [[0, 0, 2], [1, 0, 2], [2, 0, 2]], 
         name: "D2C / E-commerce Brands", 
         icon: ShoppingCart, 
+        emoji: "🛍️",
         labelPos: { x: -350, y: -220 },
         subNiches: ["Fashion & apparel", "Skincare / beauty", "Supplements", "Jewelry", "Pet products"]
     },
@@ -22,6 +23,7 @@ export const blockClusters = [
         blocks: [[2, 0, 1], [2, 0, 0]], 
         name: "Personal Brands & Coaches", 
         icon: User, 
+        emoji: "🌟",
         labelPos: { x: 350, y: -150 } 
     },
     { 
@@ -29,6 +31,7 @@ export const blockClusters = [
         blocks: [[2, 1, 0], [2, 2, 0]], 
         name: "Local Service Businesses", 
         icon: MapPin, 
+        emoji: "📍",
         labelPos: { x: 350, y: 150 } 
     },
     { 
@@ -36,6 +39,7 @@ export const blockClusters = [
         blocks: [[2, 2, 1], [2, 2, 2]], 
         name: "SaaS Companies", 
         icon: Cloud, 
+        emoji: "💻",
         labelPos: { x: 50, y: 350 } 
     },
     { 
@@ -43,6 +47,7 @@ export const blockClusters = [
         blocks: [[1, 2, 2], [0, 2, 2]], 
         name: "Real Estate Developers", 
         icon: Building, 
+        emoji: "🏢",
         labelPos: { x: -250, y: 330 } 
     },
     { 
@@ -50,6 +55,7 @@ export const blockClusters = [
         blocks: [[0, 2, 1], [0, 2, 0]], 
         name: "Healthcare Clinics", 
         icon: Stethoscope, 
+        emoji: "🏥",
         labelPos: { x: -400, y: 120 } 
     },
     { 
@@ -57,6 +63,7 @@ export const blockClusters = [
         blocks: [[0, 1, 0], [0, 0, 0], [0, 0, 1]], 
         name: "High-Ticket Education", 
         icon: GraduationCap, 
+        emoji: "🎓",
         labelPos: { x: 200, y: -280 } 
     },
 ];

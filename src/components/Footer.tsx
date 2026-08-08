@@ -32,6 +32,37 @@ export function Footer() {
     return (
         <footer className="relative w-full overflow-hidden border-t border-gray-100 bg-white px-6 pb-12 pt-24 md:px-12 lg:px-20">
             <div className="max-w-350 mx-auto">
+
+                {/* Footer CTA Block */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="mb-24 overflow-hidden rounded-3xl bg-[#001A33] p-10 md:p-16"
+                >
+                    <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-400 mb-3">Let&apos;s Work Together</p>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.1]">
+                                Ready to scale <span className="text-[#3366FF]">your brand?</span>
+                            </h2>
+                            <p className="mt-4 text-white/60 text-base max-w-md">
+                                Book a free 30-min strategy session. No commitment, just clarity.
+                            </p>
+                        </div>
+                        <Link
+                            href="/contact"
+                            className="group shrink-0 inline-flex items-center gap-3 rounded-full bg-[#3366FF] px-8 py-4 text-sm font-bold text-white transition-all duration-300 hover:bg-blue-500 hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/30"
+                        >
+                            Book a Free Strategy Call
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
+                                <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </Link>
+                    </div>
+                </motion.div>
+
                 <div className="mb-24 flex flex-col justify-between gap-12 lg:flex-row lg:gap-8">
 
                     {/* Brand Column */}

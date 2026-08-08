@@ -1,29 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function TrustSignal() {
-    const containerRef = useRef<HTMLElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start 80%", "start 20%"]
-    });
-
-    const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
     return (
         <section
-            ref={containerRef}
-            className="relative z-10 w-full min-h-screen overflow-hidden border-b border-black/5 py-16 md:py-24"
-            style={{ backgroundColor: "#FDFBF7" }}
+            className="relative z-10 w-full min-h-screen overflow-hidden border-b border-black/5 bg-[#86c6a6] py-16 md:py-24"
         >
-            {/* Mint green overlay — GPU composited, zero repaint cost */}
-            <motion.div
-                className="pointer-events-none absolute inset-0 z-0"
-                style={{ backgroundColor: "#86c6a6", opacity: overlayOpacity, willChange: "opacity" }}
-            />
             {/* Subtle Grain Overlay — desktop only */}
             <div
                 className="pointer-events-none absolute inset-0 hidden opacity-[0.3] lg:block"
@@ -43,7 +27,7 @@ export function TrustSignal() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="font-heading text-3xl font-bold leading-snug tracking-tight text-neutral-900 md:text-4xl lg:text-5xl">
+                        <h2 className="font-heading text-3xl font-bold leading-snug tracking-tight text-black md:text-4xl lg:text-5xl">
                             Trusted by founders and business owners who value ROI over hype.
                         </h2>
                     </motion.div>
@@ -53,9 +37,9 @@ export function TrustSignal() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="border-l-2 border-orange-500 pl-6"
+                        className="border-l-4 border-black pl-6"
                     >
-                        <p className="text-lg font-light leading-relaxed text-neutral-600 md:text-xl">
+                        <p className="text-lg font-medium leading-relaxed text-black/80 md:text-xl">
                             From local service businesses to scaling SaaS platforms, we partner with teams that demand predictable growth and clear execution.
                         </p>
                     </motion.div>
@@ -71,8 +55,8 @@ export function TrustSignal() {
                 >
                     {/* 14 Days label — bold, high contrast */}
                     <div className="mb-4 flex items-center gap-3">
-                        <span className="inline-block h-[3px] w-6 rounded-full bg-orange-500" />
-                        <p className="text-sm font-black uppercase tracking-[0.18em] text-neutral-800">
+                        <span className="inline-block h-[4px] w-6 bg-black" />
+                        <p className="text-sm font-black uppercase tracking-[0.18em] text-black">
                             14 Days Results
                         </p>
                     </div>
@@ -90,6 +74,26 @@ export function TrustSignal() {
                 </motion.div>
 
             </div>
+
+            {/* CTA after results proof — mirrors marketingrizzz "Book A Free Consultation" after testimonials */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative z-10 mt-16 flex justify-center"
+            >
+                <a
+                    href="/contact"
+                    className="group inline-flex items-center gap-3 rounded-full bg-black px-8 py-4 text-sm font-bold text-white shadow-lg shadow-black/10 transition-all duration-300 hover:bg-neutral-800 hover:scale-105 active:scale-95"
+                >
+                    Book A Free Consultation
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
+                        <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                </a>
+            </motion.div>
+
         </section>
     );
 }

@@ -136,6 +136,34 @@ export default function ServicesPage() {
                     })}
                 </div>
             </section>
+
+            {/* Bottom CTA */}
+            <section className="py-24 md:py-32 bg-[#001A33]">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="mx-auto max-w-4xl px-6 text-center"
+                >
+                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-400 mb-6">Ready to Get Started?</p>
+                    <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-[1.05] mb-6">
+                        Pick a service. <span className="text-[#3366FF]">Let&apos;s build.</span>
+                    </h2>
+                    <p className="text-white/60 text-xl mb-12 max-w-2xl mx-auto">
+                        Not sure where to start? Book a free strategy call and we&apos;ll map the right growth plan for your brand.
+                    </p>
+                    <Link
+                        href="/contact"
+                        className="group inline-flex items-center gap-3 rounded-full bg-[#3366FF] px-10 py-5 text-base font-bold text-white transition-all duration-300 hover:bg-blue-500 hover:scale-105 active:scale-95 shadow-xl shadow-blue-900/30"
+                    >
+                        Book a Free Strategy Call
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
+                            <path d="M3 9H15M15 9L9 3M15 9L9 15" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </Link>
+                </motion.div>
+            </section>
         </main>
     );
 }

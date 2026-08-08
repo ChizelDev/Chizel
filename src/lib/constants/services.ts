@@ -2,7 +2,7 @@ export const serviceCategories = [
     {
         id: 1,
         category: "Performance Marketing",
-        quote: "Ads *चलाना* easy *है*, profit *बनाना* strategy *है*।",
+        quote: "Running ads is *easy*. Making ads *profitable* is strategy.",
         items: ["Paid Search (PPC)", "Paid Social Ads", "Conversion Tracking", "A/B Testing"],
         overview: "We engineer highly profitable ad campaigns across Meta, Google, and TikTok. We don't just optimize for clicks; we optimize for ROAS and tangible revenue growth.",
         problems: [
@@ -13,23 +13,16 @@ export const serviceCategories = [
         ],
         outcomes: "Scalable revenue streams, lowered acquisition costs, clear attribution, and predictable profit margins.",
         bestFor: "E-commerce brands and SaaS companies ready to aggressively scale their user acquisition with data-backed spending.",
-        images: [
-            "/assets/services/hand_holding_money-removebg-preview.png",
-            "/assets/services/Ideas-removebg-preview.png",
-            "/assets/services/_-removebg-preview.png"
-        ],
+        images: [],
         templateImage: "/assets/services pemplates/Performance marketing.png"
     },
     {
         id: 2,
         category: "Content Marketing",
-        quote: "Content *ऐसा जो सिर्फ दिखे नहीं, दिल में बस जाए*।",
+        quote: "Content that doesn't just *get seen*, it *gets remembered*.",
         items: ["Content Strategy", "Copywriting", "Video Production", "Brand Storytelling"],
         overview: "We create compelling narratives and high-quality assets that capture attention and build lasting emotional connections with your audience.",
-        images: [
-            "/assets/services/content_marketing_camera-removebg-preview.png",
-            "/assets/services/lights_camrea_action-removebg-preview.png"
-        ],
+        images: [],
         problems: [
             "Boring, generic content that nobody reads",
             "Inconsistent brand voice across channels",
@@ -43,13 +36,10 @@ export const serviceCategories = [
     {
         id: 3,
         category: "Social Media Marketing",
-        quote: "*नाम वही चलता है गलियों में, जिसकी चर्चा हो महफ़िलों में*।",
+        quote: "*The brands people talk about* are the brands *people buy from*.",
         items: ["Social Strategy", "Community Management", "Influencer Marketing", "Creative Campaigns"],
         overview: "We turn your social media presence into a thriving community. By leveraging platform-specific strategies, we amplify your brand's voice where it matters most.",
-        images: [
-            "/assets/services/mic_social_media__1_-removebg-preview.png",
-            "/assets/services/speaker_social_marketing-removebg-preview.png"
-        ],
+        images: [],
         problems: [
             "Low organic reach despite frequent posting",
             "Difficulty building a genuine community",
@@ -63,7 +53,7 @@ export const serviceCategories = [
     {
         id: 4,
         category: "Website Development",
-        quote: "Website *ऐसी, जो* VISITORS *को* CLIENTS *बना दे*।",
+        quote: "A website that turns *VISITORS* into *CLIENTS*.",
         items: ["UI/UX Design", "E-commerce Development", "CRO & Landing Pages", "Performance Optimization"],
         overview: "We build fast, scalable, and conversion-optimized websites that not only look stunning but drive measurable business results.",
         images: [],
@@ -80,7 +70,7 @@ export const serviceCategories = [
     {
         id: 5,
         category: "Search Engine Optimization",
-        quote: "Search *करो या ना करो, हम आपको* Search *में ले आएंगे*।",
+        quote: "Whether they're *searching for you* or not, *we'll make sure they find you*.",
         items: ["Technical SEO", "On-Page Optimization", "Off-Page & Link Building", "Local SEO"],
         overview: "We optimize your digital footprint to ensure you rank at the top of search results. Our data-driven SEO strategies drive high-intent organic traffic that converts.",
         images: [],
@@ -93,5 +83,22 @@ export const serviceCategories = [
         outcomes: "Top-tier search rankings, sustainable organic traffic growth, lower overall customer acquisition costs, and increased brand authority.",
         bestFor: "Brands seeking long-term, compounding organic growth and reduced dependency on paid advertising.",
         templateImage: "/assets/services/seo.png"
+    },
+    {
+        id: 6,
+        category: "WhatsApp & Custom Automation",
+        quote: "Automate your workflows. *Convert, close, and support 24/7*.",
+        items: ["WhatsApp AI Agents", "Custom Workflow Automation", "24/7 Customer Support", "Lead Qualification"],
+        overview: "We deploy intelligent WhatsApp bots and custom automation workflows that engage customers, qualify leads, and close sales on autopilot, around the clock.",
+        images: [],
+        problems: [
+            "Losing sales after hours or on weekends",
+            "Slow response times costing you hot leads",
+            "Customer support teams overwhelmed with repetitive questions",
+            "Manual lead qualification taking up too much time"
+        ],
+        outcomes: "Instant response times, higher conversion rates on inbound leads, reduced support overhead, and an automated sales pipeline.",
+        bestFor: "D2C brands and service businesses that want to scale their sales and support without exponentially growing headcount.",
+        templateImage: ""
     }
 ];

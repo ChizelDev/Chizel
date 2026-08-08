@@ -24,8 +24,8 @@ const fadeUp = {
 
 const stats = [
   { value: "155", label: "WhatsApp Conversations", sub: "₹10.30 – ₹13.31 per conversation" },
-  { value: "47", label: "Qualified Leads", sub: "₹39.79 – ₹40.20 cost per lead" },
-  { value: "26.9K", label: "People Reached", sub: "Unique reach in 14 days" },
+  { value: "37", label: "Qualified Leads", sub: "Record breaking ₹6.14 cost per lead" },
+  { value: "26.9K", label: "People Reached", sub: "Unique reach in record time" },
   { value: "45.2K", label: "Total Impressions", sub: "Average CPM ₹50.62" },
   { value: "₹2.3K+", label: "Total Ad Spend", sub: "Maximum efficiency, minimum waste" },
   { value: "Page 1", label: "Google Ranking", sub: "Targeted local search terms" },
@@ -137,8 +137,8 @@ export default function ViniGrowCaseStudy() {
           <h2 className="mb-6 text-4xl font-black leading-[1.05] tracking-tighter text-black md:text-6xl lg:text-[64px]">
             From 91 failed campaigns<br className="hidden md:block" /> and zero leads, to{" "}
             <span className="text-[#1d4ed8]">Page 1 rankings</span> and{" "}
-            <span className="text-[#1d4ed8]">47 qualified leads</span>{" "}
-            in 14 days.
+            <span className="text-[#1d4ed8]">37 qualified leads</span>{" "}
+            in record time.
           </h2>
           <p className="max-w-3xl text-xl font-medium leading-relaxed text-gray-500">
             A complete digital transformation for a travel and visa assistance agency that had tried digital marketing before and failed. We rebuilt everything from the ground up: ads, website, SEO, and AI search visibility.
@@ -149,7 +149,7 @@ export default function ViniGrowCaseStudy() {
       {/* Stats strip */}
       <section className="bg-[#1a1a2e] py-16">
         <div className="max-w-350 mx-auto px-6 md:px-12 lg:px-20">
-          <p className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">Results, First 14 Days</p>
+          <p className="mb-10 text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">Record-Breaking Results</p>
           <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
             {stats.map((s, i) => (
               <motion.div
@@ -226,7 +226,7 @@ export default function ViniGrowCaseStudy() {
           >
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">Our Approach</span>
             <h2 className="text-3xl font-black leading-tight tracking-tighter text-black md:text-5xl">
-              Six systems. Built in parallel. Launched in 14 days.
+              Six systems. Built in parallel. Launched in record time.
             </h2>
           </motion.div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -260,7 +260,7 @@ export default function ViniGrowCaseStudy() {
         >
           <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#3366FF]">Performance Results</span>
           <h2 className="mb-10 text-3xl font-black leading-tight tracking-tighter text-black md:text-4xl">
-            14 Days. Real business numbers.
+            Record speed. Real business numbers.
           </h2>
           <div className="overflow-hidden rounded-3xl border border-gray-100 shadow-lg">
             <Image
@@ -382,9 +382,8 @@ export default function ViniGrowCaseStudy() {
             </div>
             <div className="flex shrink-0 flex-col items-center justify-center gap-4 text-center lg:min-w-[220px]">
               {[
-                { n: "14", l: "Days" },
-                { n: "47", l: "Leads" },
-                { n: "₹40", l: "CPL" },
+                { n: "37", l: "Leads" },
+                { n: "₹6.14", l: "CPL" },
               ].map((s) => (
                 <div key={s.l} className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 w-full">
                   <p className="text-4xl font-black text-white">{s.n}</p>

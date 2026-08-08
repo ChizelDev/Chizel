@@ -149,8 +149,8 @@ export function GraphicPortfolio() {
                 {/* Headline */}
                 <div className="flex-1">
                   <p className="text-lg font-bold leading-snug text-white md:text-xl">
-                    47 qualified leads. 155 WhatsApp conversations. Page 1 Google rankings.{" "}
-                    <span className="text-[#3366FF]">In 14 days.</span>
+                    37 qualified leads. 155 WhatsApp conversations. Page 1 Google rankings.{" "}
+                    <span className="text-[#3366FF]">In record time.</span>
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {["Performance Marketing", "SEO", "Website Redesign", "AI Search"].map((tag) => (
@@ -164,8 +164,8 @@ export function GraphicPortfolio() {
                 {/* Stats */}
                 <div className="flex shrink-0 gap-6">
                   {[
-                    { v: "47", l: "Leads" },
-                    { v: "₹40", l: "CPL" },
+                    { v: "37", l: "Leads" },
+                    { v: "₹6.14", l: "CPL" },
                     { v: "26.9K", l: "Reached" },
                   ].map((s) => (
                     <div key={s.l} className="text-center">
