@@ -166,58 +166,6 @@ function MobileBackground() {
   );
 }
 
-// ----------- Mobile-only Rocket Animation -----------
-function MobileRocket() {
-  const { scrollY } = useScroll();
-  // Map 0-400px of scroll down to 0 to -1200px of upward movement
-  const y = useTransform(scrollY, [0, 400], [0, -1200]);
-
-  return (
-    <motion.div 
-      style={{ y }}
-      className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center md:hidden z-0 pointer-events-none"
-    >
-      {/* Anime Mecha 2D Flat Rocket */}
-      <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-        className="relative z-10 w-56 h-auto"
-        style={{ filter: "drop-shadow(0 15px 10px rgba(0, 0, 0, 0.2))" }}
-      >
-        <img 
-          src="/assets/rocket-transparent.png" 
-          alt="Anime Rocket" 
-          className="w-full h-auto object-contain transform -translate-y-4"
-        />
-      </motion.div>
-      {/* Prominent Combustion Particles (Engine Exhaust) */}
-      <div className="relative w-full h-40 -mt-16 flex justify-center z-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={`light-${i}`}
-            initial={{ opacity: 0.9, y: 0, x: 0 }}
-            animate={{ 
-              opacity: [0, 1, 0], 
-              scale: [0.8, 1.5, 2],
-              y: 40 + Math.random() * 100,
-              x: (Math.random() - 0.5) * 60,
-            }}
-            transition={{
-              duration: 0.8 + Math.random() * 0.8,
-              repeat: Infinity,
-              delay: Math.random() * 1,
-              ease: "easeOut"
-            }}
-            className={`absolute top-0 w-3 h-3 rounded-full blur-[2px] mix-blend-screen ${
-              Math.random() > 0.5 ? 'bg-orange-400 shadow-[0_0_12px_rgba(251,146,60,1)]' : 'bg-yellow-300 shadow-[0_0_12px_rgba(253,224,71,1)]'
-            }`}
-          />
-        ))}
-      </div>
-    </motion.div>
-  );
-}
-
 // ----------------------------------------
 
 export function Hero() {
@@ -282,13 +230,12 @@ export function Hero() {
 
       {/* Mobile: lightweight static images, zero blend modes */}
       <MobileBackground />
-      <MobileRocket />
 
       {/* Typography Container */}
       <motion.div
         layout
         transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-        className={`relative z-10 flex w-full items-center px-6 md:px-14 lg:px-20 pb-96 md:pb-0 ${isCentered ? "justify-center" : "justify-start"
+        className={`relative z-10 flex w-full items-center px-6 md:px-14 lg:px-20 ${isCentered ? "justify-center" : "justify-start"
           }`}
       >
         <motion.div
