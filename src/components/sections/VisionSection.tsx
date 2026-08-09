@@ -32,7 +32,7 @@ export function VisionSection() {
                 
                 {/* Parallax Background Image */}
                 <motion.div 
-                    className="absolute inset-0 w-full h-[120%]"
+                    className="absolute top-0 left-0 w-full h-[120%]"
                     style={{ y, willChange: "transform" }}
                 >
                     <Image

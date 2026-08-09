@@ -71,7 +71,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           inter.variable,
           spaceGrotesk.variable,
           lora.variable,
-          "min-h-screen font-sans antialiased selection:bg-white/20"
+          "min-h-screen font-sans antialiased selection:bg-[#3366FF]/25"
         )}
       >
         <noscript>
