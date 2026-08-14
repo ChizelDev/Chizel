@@ -24,9 +24,26 @@ const lora = Lora({
 });
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.d2cora.com"),
-  title: "D2CORA | Top Digital Marketing Agency for D2C Brands & Ecommerce Growth",
-  description: "d2cora is a leading digital marketing agency for D2C brands, specializing in performance marketing, conversion rate optimization (CRO), and ecommerce growth strategies. Partner with us to scale your business and boost your revenue today.",
-  keywords: ["digital marketing agency", "D2C brands", "performance marketing", "CRO", "ecommerce growth", "d2c marketing"],
+  title: "D2CORA | One-Stop Digital Marketing Agency for Businesses, Clinics, E-commerce & Local Brands",
+  description: "d2cora is your one-stop marketing ecosystem — helping service businesses, local brands, e-commerce stores, clinics, and D2C companies grow through performance marketing, lead generation, Meta & Google Ads, SEO, and conversion optimization. Scale smarter with d2cora.",
+  keywords: [
+    "digital marketing agency",
+    "one stop marketing agency",
+    "marketing ecosystem",
+    "performance marketing",
+    "lead generation agency",
+    "Meta ads agency",
+    "Google ads agency",
+    "marketing for clinics",
+    "marketing for local businesses",
+    "ecommerce marketing agency",
+    "D2C marketing",
+    "service business marketing",
+    "social media marketing agency",
+    "SEO agency India",
+    "CRO agency",
+    "d2cora",
+  ],
 };
 
 export const viewport: Viewport = {
