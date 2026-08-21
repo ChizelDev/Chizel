@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Target, Users, Lightbulb, Award, CheckCircle2, Rocket, Briefcase, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, Target, Users, Lightbulb, Award, CheckCircle2, Rocket, Briefcase, Zap, ShieldCheck, Linkedin, Instagram } from "lucide-react";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -106,6 +106,19 @@ export default function AboutPage() {
                                 </p>
                                 <p className="mt-2 text-xs font-bold uppercase tracking-wider text-gray-400">Rahul Bora, Founder</p>
                             </div>
+
+                            {/* Socials CTA */}
+                            <div className="mt-8 flex items-center gap-4 border-t border-gray-100 pt-6">
+                                <span className="text-sm font-bold uppercase tracking-wider text-black">Follow Rahul:</span>
+                                <div className="flex gap-3">
+                                    <Link href="https://www.linkedin.com/in/rahulbora-d2cora/" target="_blank" rel="me noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 text-gray-600 transition-colors hover:bg-[#0A66C2] hover:text-white" aria-label="Rahul Bora on LinkedIn">
+                                        <Linkedin className="h-5 w-5" />
+                                    </Link>
+                                    <Link href="https://instagram.com/heyrahulbora" target="_blank" rel="me noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 text-gray-600 transition-colors hover:bg-[#E1306C] hover:text-white" aria-label="Rahul Bora on Instagram">
+                                        <Instagram className="h-5 w-5" />
+                                    </Link>
+                                </div>
+                            </div>
                         </motion.div>
 
                         {/* Anishka Choudhary */}
@@ -148,6 +161,16 @@ export default function AboutPage() {
                                     People make decisions with their eyes before they think with their minds. If your brand does not inspire confidence at first glance, you have already lost. We build brands that win before a word is read.
                                 </p>
                                 <p className="mt-2 text-xs font-bold uppercase tracking-wider text-gray-400">Anishka Choudhary, Co-Founder</p>
+                            </div>
+
+                            {/* Socials CTA */}
+                            <div className="mt-8 flex items-center gap-4 border-t border-gray-100 pt-6">
+                                <span className="text-sm font-bold uppercase tracking-wider text-black">Follow Anishka:</span>
+                                <div className="flex gap-3">
+                                    <Link href="https://www.linkedin.com/in/anishka-choudhary/" target="_blank" rel="me noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 text-gray-600 transition-colors hover:bg-[#0A66C2] hover:text-white" aria-label="Anishka Choudhary on LinkedIn">
+                                        <Linkedin className="h-5 w-5" />
+                                    </Link>
+                                </div>
                             </div>
                         </motion.div>
                     </div>
